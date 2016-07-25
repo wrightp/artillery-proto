@@ -1,0 +1,33 @@
+config:
+  target: "https://packages-acceptance.chef.io"
+  defaults:
+    headers:
+      Authorization: 'Basic bWl4bGliLWluc3RhbGw6JW1LUHR6YlQxSkgxd20zMzNramtranMzOW9ldUZMZ1o4dk5vT2RMQlBkKVRaQUpzVVJzOXcwSGxvV1IkbDZo'
+  phases:
+    - duration: 300,
+      arrivalRate: 5
+      name: "Warm-up"
+    - pause: 10
+    - duration: 60
+      arrivalCount: 30
+    - duration: 600
+      arrivalRate: 50
+      name: "High load phase"
+  payload:
+    path: "poller-payload.csv"
+    fields:
+      - product
+      - channel
+    order: sequence
+
+scenarios:
+  - name: poller
+    flow:
+    - post:
+       url: /api/search/aql
+       body: >
+         items.find(
+         {"repo": "omnibus-{{ channel }}-local"},
+         {"@omnibus.project": "{{ product }}"},
+         {"name": {"$nmatch": "*.metadata.json" }}
+         ).include("@omnibus.version", "artifact.module.build")
