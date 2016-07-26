@@ -1,0 +1,48 @@
+{
+  "intermediate": [],
+  "aggregate": {
+    "timestamp": "2016-07-26T04:09:20.476Z",
+    "scenariosCreated": 1,
+    "scenariosCompleted": 1,
+    "requestsCompleted": 1,
+    "latency": {
+      "min": 357.9,
+      "max": 357.9,
+      "median": 357.9,
+      "p95": null,
+      "p99": null
+    },
+    "rps": {
+      "count": 1,
+      "mean": 0.34
+    },
+    "scenarioDuration": {
+      "min": 391.7,
+      "max": 391.7,
+      "median": 391.7,
+      "p95": null,
+      "p99": null
+    },
+    "errors": {},
+    "codes": {
+      "200": 1
+    },
+    "matches": 0,
+    "latencies": [
+      [
+        1469506157854,
+        "02e46bb0-0be4-4ad4-8079-3e072a827321",
+        357920544,
+        200
+      ]
+    ],
+    "customStats": {}
+  },
+  "phases": [
+    {
+      "duration": 5,
+      "arrivalCount": 1,
+      "name": "poller cron"
+    }
+  ]
+}

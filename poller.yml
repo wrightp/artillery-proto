@@ -4,15 +4,11 @@ config:
     headers:
       Authorization: 'Basic bWl4bGliLWluc3RhbGw6JW1LUHR6YlQxSkgxd20zMzNramtranMzOW9ldUZMZ1o4dk5vT2RMQlBkKVRaQUpzVVJzOXcwSGxvV1IkbDZo'
   phases:
-    - duration: 300,
-      arrivalRate: 5
-      name: "Warm-up"
-    - pause: 10
     - duration: 60
-      arrivalCount: 30
-    - duration: 600
-      arrivalRate: 50
-      name: "High load phase"
+      arrivalRate: 1
+      arrivalCount: 1
+      rampTo: 1
+      name: "poller cron"
   payload:
     path: "poller-payload.csv"
     fields:
