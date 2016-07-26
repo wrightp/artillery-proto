@@ -1,0 +1,20 @@
+config:
+  target: "https://packages-acceptance.chef.io"
+  defaults:
+    headers:
+      Authorization: 'Basic bWl4bGliLWluc3RhbGw6JW1LUHR6YlQxSkgxd20zMzNramtranMzOW9ldUZMZ1o4dk5vT2RMQlBkKVRaQUpzVVJzOXcwSGxvV1IkbDZo'
+      Content-Type: 'text/plain'
+  phases:
+    - duration: 60
+      arrivalRate: 2
+      rampTo: 50
+  payload:
+    # currently chef only
+    path: "downloads-payload.csv"
+    fields:
+      - url
+
+scenarios:
+  - flow:
+    - head:
+       url: "{{ url }}"

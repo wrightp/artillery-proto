@@ -1,0 +1,24 @@
+GIT
+  remote: git://github.com/chef/mixlib-install.git
+  revision: bf749c93aee7e88990cc5049fdb61bc7c625c5af
+  specs:
+    mixlib-install (1.1.0)
+      artifactory
+      mixlib-shellout
+      mixlib-versioning
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    artifactory (2.3.3)
+    mixlib-shellout (2.2.6)
+    mixlib-versioning (1.1.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  mixlib-install!
+
+BUNDLED WITH
+   1.12.5

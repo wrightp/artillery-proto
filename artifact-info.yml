@@ -1,0 +1,30 @@
+config:
+  target: "https://packages-acceptance.chef.io"
+  defaults:
+    headers:
+      Authorization: 'Basic bWl4bGliLWluc3RhbGw6JW1LUHR6YlQxSkgxd20zMzNramtranMzOW9ldUZMZ1o4dk5vT2RMQlBkKVRaQUpzVVJzOXcwSGxvV1IkbDZo'
+      Content-Type: 'text/plain'
+  phases:
+    - duration: 30
+      arrivalRate: 1
+  payload:
+    path: "artifact-info-payload.csv"
+    fields:
+      - product
+      - channel
+      - version
+
+scenarios:
+  - flow:
+    - get:
+        url: /api/build/{{ product }}
+    - think: 1
+    - post:
+        url: /api/search/aql
+        body: >
+          items.find(
+            {"repo": "omnibus-{{ channel }}-local"},
+            {"@omnibus.project": "{{ product }}"},
+            {"@omnibus.version": "{{ version }}"},
+            {"name": {"$nmatch": "*.metadata.json" }}
+          ).include("repo", "path", "name", "property")
