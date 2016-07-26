@@ -5,7 +5,7 @@ config:
       Authorization: 'Basic bWl4bGliLWluc3RhbGw6JW1LUHR6YlQxSkgxd20zMzNramtranMzOW9ldUZMZ1o4dk5vT2RMQlBkKVRaQUpzVVJzOXcwSGxvV1IkbDZo'
       Content-Type: 'text/plain'
   phases:
-    - duration: 60
+    - duration: 30
       arrivalRate: 1
   payload:
     path: "poller-payload.csv"
