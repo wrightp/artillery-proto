@@ -17,7 +17,7 @@ config:
 scenarios:
   - flow:
     - get:
-        url: /api/build/{{ product }}
+        url: "/api/build/{{ product }}"
     - think: 1
     - post:
         url: /api/search/aql
