@@ -3,12 +3,10 @@ config:
   defaults:
     headers:
       Authorization: 'Basic bWl4bGliLWluc3RhbGw6JW1LUHR6YlQxSkgxd20zMzNramtranMzOW9ldUZMZ1o4dk5vT2RMQlBkKVRaQUpzVVJzOXcwSGxvV1IkbDZo'
+      Content-Type: 'text/plain'
   phases:
     - duration: 60
       arrivalRate: 1
-      arrivalCount: 1
-      rampTo: 1
-      name: "poller cron"
   payload:
     path: "poller-payload.csv"
     fields:
@@ -17,8 +15,7 @@ config:
     order: sequence
 
 scenarios:
-  - name: poller
-    flow:
+  - flow:
     - post:
        url: /api/search/aql
        body: >
