@@ -5,12 +5,11 @@ config:
       Authorization: 'Basic bWl4bGliLWluc3RhbGw6JW1LUHR6YlQxSkgxd20zMzNramtranMzOW9ldUZMZ1o4dk5vT2RMQlBkKVRaQUpzVVJzOXcwSGxvV1IkbDZo'
       Content-Type: 'text/plain'
   phases:
-    - duration: 60
+    - duration: 10
       arrivalRate: 2
-      rampTo: 50
+      rampTo: 10
   payload:
-    # currently chef only
-    path: "downloads-payload.csv"
+    path: "../payloads/downloads.csv"
     fields:
       - url
 

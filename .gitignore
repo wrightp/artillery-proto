@@ -1,1 +1,2 @@
-/artillery_report_*.json
+/artillery_report_*.json*
+/reports

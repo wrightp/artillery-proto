@@ -1,5 +1,9 @@
-brew install npm
+# es-package-router load testing
+Generate load against the package router environment
 
-npm install artillery
+## Dev Setup
+Install npm
+`brew install npm` on osx
 
-artillery run poller.yml
+Install artillery (load testing tool)
+`npm install artillery`

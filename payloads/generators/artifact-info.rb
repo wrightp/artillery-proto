@@ -2,6 +2,8 @@ require "mixlib/install"
 
 CHANNELS = [ :stable, :unstable, :current ]
 
+ENV["ARTIFACTORY_ENDPOINT"] = "https://packages-acceptance.chef.io"
+
 data = [ ]
 
 PRODUCT_MATRIX.products.each do |product|
@@ -18,8 +20,8 @@ PRODUCT_MATRIX.products.each do |product|
   end
 end
 
-File.open("artifact-info-payload.csv", "w") do |file|
+File.open("../artifact-info.csv", "w") do |file|
   data.each do |d|
-    file.write "#{d[0]},#{d[1]},#{d[2]}\n"
+    file.write "#{d.join(",")}\n"
   end
 end
